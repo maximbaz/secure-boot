@@ -29,5 +29,5 @@ package() {
     install -Dm644 secure-boot.hook ${pkgdir}/etc/pacman.d/hooks/secure-boot.hook
 }
 
-md5sums=('8ce6985cddeea10d91bd6b785c9df557'
+md5sums=('ad7d694cb141f5437eec509a781f4b3d'
          '1313074db7ddeac0c115e44c7b16f218')
