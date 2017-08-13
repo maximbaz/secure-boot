@@ -26,7 +26,7 @@ package() {
     cd "${srcdir}"
     install -dm700 ${pkgdir}/etc/secure-boot
     install -Dm755 secure-boot ${pkgdir}/usr/bin/secure-boot
-    install -Dm644 secure-boot.hook ${pkgdir}/etc/pacman.d/hooks/secure-boot.hook
+    install -Dm644 secure-boot.hook ${pkgdir}/usr/share/libalpm/hooks/99-secure-boot.hook
 }
 
 md5sums=('ad7d694cb141f5437eec509a781f4b3d'
