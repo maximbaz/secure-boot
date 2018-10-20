@@ -1,0 +1,23 @@
+pkgbase = secure-boot
+	pkgdesc = secure-boot tool
+	pkgver = 1.2
+	pkgrel = 1
+	url = https://github.com/gdamjan/secure-boot
+	arch = any
+	license = GPL
+	depends = efitools
+	depends = sbsigntools
+	depends = make
+	depends = efibootmgr
+	depends = util-linux
+	depends = binutils
+	depends = systemd
+	source = secure-boot
+	source = secure-boot.hook
+	source = 95-secure-boot.install
+	md5sums = 0f737d39fd67020dbecf1cd6ad63b9b8
+	md5sums = 1313074db7ddeac0c115e44c7b16f218
+	md5sums = 31dd53c29726a92f498b4b56d9684032
+
+pkgname = secure-boot
+
