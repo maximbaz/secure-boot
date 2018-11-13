@@ -1,6 +1,6 @@
 # Maintainer: Damjan Georgievski <gdamjan@gmail.com>
 pkgname=secure-boot
-pkgver=1.2
+pkgver=1.3
 pkgrel=1
 epoch=
 pkgdesc="secure-boot tool"
@@ -19,7 +19,7 @@ backup=()
 options=()
 install=
 changelog=
-source=("secure-boot" "secure-boot.hook" "95-secure-boot.install")
+source=("secure-boot" "secure-boot.hook" "fwupd.hook" "95-secure-boot.install" )
 noextract=()
 
 package() {
@@ -27,9 +27,11 @@ package() {
     install -dm700 "${pkgdir}"/etc/secure-boot
     install -Dm755 secure-boot "${pkgdir}"/usr/bin/secure-boot
     install -Dm644 secure-boot.hook "${pkgdir}"/usr/share/libalpm/hooks/99-secure-boot.hook
-    install -Dm644 95-secure-boot.install "${pkgdir}"/usr/lib/kernel/install.d/
+    install -Dm644 fwupd.hook "${pkgdir}"/usr/share/libalpm/hooks/fwupd.hook
+    install -Dm644 95-secure-boot.install "${pkgdir}"/usr/lib/kernel/install.d/95-secure-boot.install
 }
 
-md5sums=('0f737d39fd67020dbecf1cd6ad63b9b8'
-         '1313074db7ddeac0c115e44c7b16f218'
-         '31dd53c29726a92f498b4b56d9684032')
+sha256sums=('7676a6bc0857ea5869dd53baf540a6224611c59bc47618199af318e9cc350ed8'
+            '9252561fd43bc707e062ce266f7e55ceff9cd56ad00bde003ba93a61aaf27922'
+            '70466aa19cb38aedb210fb16a893f317412c9fc6f15169958583709d2954c67b'
+            '62da3ec34fa9370d6877fe371e3536bab6255b2fb5353ef6c0e1adf4c555adcf')
