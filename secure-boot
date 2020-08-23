@@ -30,6 +30,10 @@ ifdef EFIBOOTDEVICE
 EFIBOOTMGR += -d $(EFIBOOTDEVICE)
 endif
 
+ifeq (,$(wildcard $(CMDLINE)))
+CMDLINE := /proc/cmdline
+endif
+
 .PHONY: default clean update install
 
 default:
@@ -49,9 +53,7 @@ $(BOOTDIR)/${DESTFILE}: $(BUILDDIR)/combined-boot-signed.efi
 
 $(BUILDDIR)/cmdline.txt:
 	@mkdir -p $(BUILDDIR)
-	[ -f ${CMDLINE} ] && \
-	    tr '\n' ' ' < ${CMDLINE} > $@ || \
-	    echo -n `</proc/cmdline` > $@
+	tr '\n' ' ' < ${CMDLINE} > $@
 
 $(BUILDDIR)/initramfs.img: $(UCODE) $(INITRAMFS)
 	@mkdir -p $(BUILDDIR)
